@@ -1,0 +1,43 @@
+// Scrollbar styles
+
+$scroll-color: #a3a3a3;
+$scroll-bg: #f1f1f1;
+
+::-webkit-scrollbar {
+  width: rem(8);
+  background-color: $scroll-bg;
+
+  // ::-webkit-scrollbar-thumb
+
+  &-thumb {
+    background-color: $scroll-color;
+    border-radius: rem(5);
+  }
+}
+
+// Body tag styles
+#body {
+  // Lock scroll
+  .lock {
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+  }
+}
+
+// Shell layout
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: clip;
+
+  @supports not (overflow: clip) {
+    overflow: hidden;
+  }
+
+  // Press the footer
+  > main {
+    flex: 1 1 auto;
+  }
+}

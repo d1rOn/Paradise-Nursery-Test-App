@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "shelljs": "^0.8.5"
+  }
+}

@@ -1,0 +1,78 @@
+@import '~/scss/module';
+
+.header {
+  background: $green;
+
+  // .header__container
+
+  &__container {
+    @extend %container;
+  }
+
+  // .header__body
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem(75);
+    color: $light-color;
+  }
+
+  // .header__menu
+
+  &__menu {
+  }
+
+  // .header__list
+
+  &__list {
+    display: flex;
+    gap: rem(16);
+    align-items: center;
+    font-size: rem(18);
+  }
+
+  // .header__item
+
+  &__item {
+    // .header__item_active
+
+    &_active {
+      font-weight: 500;
+      text-decoration: underline;
+    }
+  }
+
+  // .header__cart
+
+  &__cart {
+    position: relative;
+    width: rem(50);
+    height: rem(50);
+
+    .header__icon {
+      scale: 1.5;
+    }
+  }
+
+  // .header__count
+
+  &__count {
+    position: absolute;
+    top: 45%;
+    right: 0;
+    left: rem(9);
+    display: block;
+    font-size: rem(14);
+    text-align: center;
+    transform: translate(0, -50%);
+  }
+
+  a,
+  button {
+    @include hover;
+
+    transition: opacity 0.3s ease 0s;
+  }
+}

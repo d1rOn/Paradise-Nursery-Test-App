@@ -1,0 +1,40 @@
+@import '~/scss/module';
+
+.shoppingCart {
+  // .shoppingCart__container
+
+  &__container {
+    @extend %container;
+
+    max-width: rem(500);
+    padding-top: rem(32);
+    padding-bottom: rem(48);
+  }
+
+  // .shoppingCart__body
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+  }
+
+  // .shoppingCart__footer
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    align-items: center;
+  }
+
+  // .shoppingCart__total
+
+  &__total {
+    text-transform: capitalize;
+
+    > span {
+      font-weight: 500;
+    }
+  }
+}

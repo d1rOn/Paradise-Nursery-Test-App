@@ -1,0 +1,31 @@
+@import '~/scss/module';
+
+.fullScreen {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+
+  @supports not (min-height: 100svh) {
+    min-height: 100vh;
+  }
+
+  // .fullScreen__body
+
+  &__body {
+    @include centered(flex);
+
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: rem(20);
+  }
+
+  // .fullScreen__background
+
+  &__background {
+    * {
+      @include fill(fixed);
+    }
+  }
+}

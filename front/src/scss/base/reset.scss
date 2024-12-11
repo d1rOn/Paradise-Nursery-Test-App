@@ -1,0 +1,78 @@
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+}
+
+/* stylelint-disable-next-line selector-id-pattern */
+html,
+body,
+#__next {
+  min-width: $min-width + px;
+  height: 100%;
+}
+
+body {
+  font-family: $primary-font-family;
+  line-height: 1;
+  color: $main-color;
+  background-color: $main-bg;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+input {
+  box-shadow: 0 0 0 rem(999) $main-bg inset;
+}
+
+textarea {
+  resize: none !important;
+}
+
+button {
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  > li {
+    list-style: none;
+  }
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}

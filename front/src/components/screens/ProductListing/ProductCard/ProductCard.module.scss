@@ -1,0 +1,48 @@
+@import '~/scss/module';
+
+.productCard {
+  // .productCard__body
+  &__body,
+  // .productCard__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+  }
+
+  // .productCard__body
+
+  &__body {
+    box-shadow: 0 0 rem(8) 0 rgba($dark-color, 0.3);
+  }
+
+  // .productCard__content
+
+  &__content {
+    align-items: center;
+    padding: rem(16);
+  }
+
+  // .productCard__img
+
+  &__img {
+    aspect-ratio: 1 / 1;
+  }
+
+  // .productCard__title
+
+  &__title {
+    font-size: rem(18);
+    font-weight: 500;
+  }
+
+  // .productCard__price
+
+  &__price {
+  }
+
+  // .productCard__btn
+
+  &__btn {
+  }
+}

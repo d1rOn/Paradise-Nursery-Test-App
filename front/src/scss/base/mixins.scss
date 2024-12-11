@@ -1,0 +1,181 @@
+// Responsive value
+@mixin responsive-value(
+  $property,
+  $start-size,
+  $min-size,
+  $type: 1,
+  $width-from: $max-width,
+  $width-to: $min-width
+) {
+  // For calc();
+  $add-size: calc(($start-size - $min-size) / $base-size);
+  $calc-size: calc(
+    #{rem($min-size)} + #{$add-size} * (100vw - #{rem($width-to)}) / #{calc(
+        $width-from / $base-size
+      ) - calc($width-to / $base-size)}
+  );
+
+  // If there is less container
+  @if $type == 1 {
+    #{$property}: rem($start-size);
+
+    @media (max-width: ($width-from + px)) {
+      #{$property}: $calc-size;
+    }
+  }
+
+  // If there is more container
+  @else if $type == 2 {
+    #{$property}: rem($start-size);
+
+    @media (min-width: ($width-from + px)) {
+      #{$property}: $calc-size;
+    }
+  }
+
+  // Always
+  @else {
+    #{$property}: $calc-size;
+  }
+}
+
+// Responsive value by height
+@mixin responsive-value-by-height(
+  $property,
+  $start-size,
+  $min-size,
+  $type: 1,
+  $height-from,
+  $height-to
+) {
+  // For calc();
+  $add-size: calc(($start-size - $min-size) / $base-size);
+  $calc-size: calc(
+    #{rem($min-size)} + #{$add-size} * (100vh - #{rem($height-to)}) / #{calc(
+        $height-from / $base-size
+      ) - calc($height-to / $base-size)}
+  );
+
+  // If there is less container
+  @if $type == 1 {
+    #{$property}: rem($start-size);
+
+    @media (max-height: ($height-from + px)) {
+      #{$property}: $calc-size;
+    }
+  }
+
+  // If there is more container
+  @else if $type == 2 {
+    #{$property}: rem($start-size);
+
+    @media (min-height: ($height-from + px)) {
+      #{$property}: $calc-size;
+    }
+  }
+
+  // Always
+  @else {
+    #{$property}: $calc-size;
+  }
+}
+
+// Hover
+@mixin hover(
+  $styles: (
+    opacity: 0.5,
+  ),
+  $focus: true
+) {
+  @media (hover: hover) {
+    &:hover {
+      @each $property, $value in $styles {
+        #{$property}: $value;
+      }
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @each $property, $value in $styles {
+        #{$property}: $value;
+      }
+    }
+  }
+
+  @if $focus == true {
+    &:focus-visible {
+      @each $property, $value in $styles {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+// Fill
+@mixin fill($position: absolute, $important: false) {
+  // Important
+  @if $important == important {
+    position: $position !important;
+  } @else {
+    position: $position;
+  }
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Centered object
+@mixin centered($method) {
+  // Flex
+  @if $method == flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Position
+  @else if $method == position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Text nowrap
+@mixin text-nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Text vertical
+@mixin text-vertical {
+  writing-mode: vertical-lr;
+  transform: rotate(-180);
+  text-orientation: upright;
+}
+
+// Line camp
+@mixin line-camp($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+// Text gradient
+@mixin text-gradient($gradient) {
+  background: $gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Text stroke
+@mixin text-stroke($size, $color, $fillColor: transparent) {
+  -webkit-text-stroke: $size $color;
+  -webkit-text-fill-color: $fillColor;
+}

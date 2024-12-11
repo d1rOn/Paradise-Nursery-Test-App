@@ -1,0 +1,63 @@
+// Extends
+
+// ============================================================================
+
+// Limiting container
+%container {
+  // Responsive
+  @if $adaptive-type == 1 {
+    @if $max-width-container > 0 {
+      max-width: rem($container-width);
+      margin: 0 auto;
+    }
+
+    @if $container-padding > 0 {
+      @if $max-width-container > 0 {
+        padding-right: rem(calc($container-padding / 2));
+        padding-left: rem(calc($container-padding / 2));
+      } @else {
+        @include responsive-value(
+          padding-right,
+          calc($container-padding / 2),
+          15
+        );
+        @include responsive-value(
+          padding-left,
+          calc($container-padding / 2),
+          15
+        );
+      }
+    }
+  }
+
+  // According to breakpoints
+  @else {
+    margin: 0 auto;
+
+    @if $max-width-container > 0 {
+      max-width: rem($container-width);
+    } @else {
+      @if $container-padding > 0 {
+        padding-right: rem(calc($container-padding / 2));
+        padding-left: rem(calc($container-padding / 2));
+      }
+    }
+
+    @media (max-width: $desktop) {
+      max-width: rem(970);
+    }
+
+    @media (max-width: $tablet) {
+      max-width: rem(750);
+    }
+
+    @media (max-width: $mobile) {
+      max-width: none;
+    }
+
+    @if $container-padding > 0 and $max-width-container > 0 {
+      padding-right: rem(calc($container-padding / 2));
+      padding-left: rem(calc($container-padding / 2));
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import '~/scss/module';
+
+.btn {
+  padding: 0.8rem 1em;
+  font-weight: 500;
+  color: $light-color;
+  text-transform: capitalize;
+  border-radius: rem(5);
+
+  // .btn_default
+
+  &_default {
+    background: $green;
+
+    &:disabled {
+      background: $gray;
+    }
+  }
+
+  // .btn_common
+
+  &_common {
+    color: $dark-color;
+    background: $light-color;
+    border: rem(1) solid $gray;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  // .btn_warning
+
+  &_warning {
+    background: $red;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &:not(:disabled) {
+    @include hover;
+
+    transition: opacity 0.3s ease 0s;
+  }
+}

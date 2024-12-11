@@ -1,0 +1,19 @@
+{
+  "name": "Paradise Nursery",
+  "short_name": "Paradise Nursery",
+  "icons": [
+    {
+      "src": "/img/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "display": "standalone"
+}
